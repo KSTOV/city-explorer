@@ -4,14 +4,18 @@ import Form from "react-bootstrap/Form";
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import Error from './Error.js';
+import Weather from './Weather.js';
 
 export default class CityData extends Component {
     constructor(props) {
         super(props)
         this.state = {
           cityValue: '',
+          cityName: '',
           error: false,
-          setError: ''
+          setError: '',
+          location: {},
+          forecast: []
         }
     }
     
@@ -28,11 +32,29 @@ export default class CityData extends Component {
     }
     
     handleChange = (event) => {
-    this.setState({ cityValue: event.target.value })
+        event.preventDefault();
+        this.setState({ cityValue: event.target.value })
     }
 
     hideModal = () => {
         this.setState({error: false});
+    }
+
+    getForecast = async () => {
+        const url = `${process.env.REACT_APP_SERVER_URL}/weather?name=${this.state.location.display_name}&lat=${this.state.location.lat}&lon=${this.state.location.lon}`;
+        try {
+            let response = await axios.get(url);
+            this.setState({forecast: response.data});
+        } catch (event) {
+            this.setState({error: true});
+            this.setState({setError: event.response.status});
+        }
+    }
+
+
+    onClick = () => {
+        this.handleClick();
+        this.getForecast();
     }
 
     render() {
@@ -48,7 +70,7 @@ export default class CityData extends Component {
                         <InputGroup.Text>&#128506;&#65039;</InputGroup.Text>
                     </InputGroup>
 
-                    <Button onClick={this.handleClick}>Explore</Button>
+                    <Button onClick={this.onClick}>Explore</Button>
 
                     <Form.Group>
                         <Form.Label><h3>Name:</h3></Form.Label>
@@ -64,9 +86,10 @@ export default class CityData extends Component {
                         <Form.Label><h3>Longitude:</h3></Form.Label>
                         <Form.Text><h2>{lon}</h2></Form.Text>
                     </Form.Group>
-                    <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${lat},${lon}&size=400x400&zoom=16`} alt={this.state.cityValue} />
+                    <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_KEY}&center=${lat},${lon}&size=400x400&zoom=12`} alt={this.state.cityValue} />
                 </Form>
                 <Error setError={this.state.setError} show={this.state.error} hideModal={this.hideModal}/>
+                <Weather forecast={this.state.forecast}/>
             </div>
         )
     }
