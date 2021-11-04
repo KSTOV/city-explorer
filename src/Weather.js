@@ -5,7 +5,7 @@ export default class Weather extends Component {
     render() {
         return (
             <div>
-                {this.props.forecast && this.props.forecast.map(day => <p id="weather">{day.date}: {day.description}</p>)}
+                {this.props.forecast.length && this.props.forecast.map(day => <li key={day.date}>Date:{day} Description:{day.description}</li>)}
             </div>
         )
     }
