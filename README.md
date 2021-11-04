@@ -3,7 +3,7 @@
 **Author**: K'Lan Stovall
 **Version**: 1.0.0
 
-![Web Cycle](WebCycle.jpg)
+[Web Cycle](WebCycle.jpg)
 
 ## Overview
 
