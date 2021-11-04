@@ -41,7 +41,7 @@ export default class CityData extends Component {
     }
 
     getForecast = async () => {
-        const url = `${process.env.REACT_APP_SERVER_URL}/weather?name=${this.state.location.display_name}&lat=${this.state.location.lat}&lon=${this.state.location.lon}`;
+        const url = `${process.env.REACT_APP_SERVER_URL}/weather?city=${this.state.location.display_name}&lat=${this.state.location.lat}&lon=${this.state.location.lon}`;
         try {
             let response = await axios.get(url);
             this.setState({forecast: response.data});
