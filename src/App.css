@@ -1,15 +1,10 @@
 body
 {
-  height: 1000px;
-  background-image: url('https://cliply.co/wp-content/uploads/2021/02/392102850_EARTH_EMOJI_400px.gif');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 20%;
   background-color: rgb(164, 195, 221);
 }
 
 Form {
-  margin: 20px 50px;
+  margin: 0px 50px;
 }
 
 Button {
@@ -18,11 +13,22 @@ Button {
   
 }
 
+#headerDiv{
+  padding: 0;
+  margin: 0;
+  height: 130px;
+}
+
 h1 {
   font-size: 3em;
   text-decoration: underline;
   text-transform: uppercase;
-  margin: 50px 50px 0px 50px;
+  margin: 50px 10px 0px 50px;
+  float: left;
+}
+
+#gif {
+  width: 10pc;
 }
 
 h2 {
@@ -45,10 +51,27 @@ h3 {
   float: left;
 }
 
-img {
-  margin-top: 20px;
-  margin-left: 50px;
+#map {
+  margin: 50px 50px 50px 54px;
   border: 6px solid rgb(255, 246, 167);
-  border-radius: 50%;
+  border-radius: 2%;
   box-shadow: 2px 5px 7px rgb(128, 128, 128);
+  float: left;
+}
+
+#weatherTable {
+  margin-top: 40px;
+  margin-left: 50px;
+  width: 35%;
+}
+
+#movieTable {
+  margin-top: 40px;
+  margin-left: 50px;
+  width: 70%;
+}
+
+#moviePoster {
+  width: 100px;
+  height: 130px;
 }
