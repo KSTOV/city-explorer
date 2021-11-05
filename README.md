@@ -4,10 +4,12 @@
 **Version**: 1.0.0
 
 [Web Cycle](WebCycle.jpg)
+[Web Cycle 2](WebCycle2.jpg)
+[Web Cycle 3](WebCycle3.jpg)
 
 ## Overview
 
-City Explorer displays a location on a map based on the user input
+City Explorer displays a map of a location, weather of the location and movies with the locations name in the title based on the user input
 
 ## Getting Started
 
@@ -15,7 +17,7 @@ Visit: [City Explorer](https://ks-cityexplorer.netlify.app/)
 
 ## Architecture
 
-HTML, CSS , JavaScript, React, LocationIQ API
+HTML, CSS , JavaScript, React, LocationIQ API, Weatherbit API, themoviedb API
 
 ## Change Log
 
